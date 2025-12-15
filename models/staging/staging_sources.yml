@@ -2,7 +2,7 @@ version: 2
   
 sources: 
   - name: weather_data
-    schema: c_juanturiel
+    schema: s_juanturiel
     tables:
       - name: weather_daily_raw
       - name: weather_hourly_raw

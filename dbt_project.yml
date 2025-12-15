@@ -41,11 +41,11 @@ models:
     staging:
         materialized: table
       # Applies to all files under models/prep/
-    prep:
-        materialized: table
+    #prep:
+        #materialized: table
     # Applies to all files under models/mart/
-    mart:
-        materialized: table
+    #mart:
+        #materialized: table
 
 # adding a comment
 ## comment
