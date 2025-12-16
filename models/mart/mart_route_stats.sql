@@ -16,6 +16,40 @@ In a table `mart_route_stats.sql` we want to see **for each route over all time*
 */
 
 
+
+with airport_stats as (
+    select origin as airport_origin
+        ,dest as airport_destination
+        ,count(flight_number) as total_flights
+        ,count(distinct tail_number) as total_planes
+        ,count(distinct airline) as total_airlines
+        ,sum(actual_elapsed_time)/count(*) as average_elapsed_time
+        ,sum(arr_delay)/count(*) as average_delay_arrival
+        ,max(arr_delay) as max_delay_arrival
+        ,min(arr_delay) as min_delay_arrival
+        ,count(*) filter (where cancelled =1) as cancelled_flights
+        ,count(*) filter (where diverted =1) as diverted_flights
+    from {{ref('prep_flights')}}
+    group by airport_origin, airport_destination
+)
+select p.city
+    ,p.country
+    ,p.name
+    ,airport_stats.*
+from airport_stats
+left join {{ref('prep_airports')}} as p
+    on p.faa = airport_origin
+left join {{ref('prep_airports')}} as b
+    on b.faa = airport_destination
+--group by airport_origin, airport_destination, p.city, p.country, p.name THERE IS NO NEED TO GROUP AGAIN!
+order by (airport_origin, airport_destination) desc
+
+
+
+
+
+
+/*
 select 
 	origine.faa AS faa_origin
 	,origine.name
@@ -48,3 +82,4 @@ group BY origine.faa
 	,destine.city
 	,destine.country
 ;
+*/
