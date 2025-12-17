@@ -21,3 +21,4 @@ sources:
       - name: orders
       - name: order_details
       - name: products
+      - name: categories
