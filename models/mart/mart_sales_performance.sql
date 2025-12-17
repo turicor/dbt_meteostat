@@ -1,5 +1,5 @@
 with sales_data as (
-    select * from {{ ref('northwind','prep_sales')}}
+    select * from {{ ref('prep_sales')}}
 )
 select
     order_year
