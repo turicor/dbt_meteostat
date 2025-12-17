@@ -7,7 +7,7 @@ with order_data as (
 ,products_data as (
     select * from {{ref('staging_products')}}
 )
-,category_data as (
+,categories_data as (
     select * from {{ref('staging_categories')}}
 )
 SELECT
@@ -20,7 +20,7 @@ SELECT
     det.unit_price,
     det.quantity,
     det.discount,
-    (p.unit_price * det.quantity) * (1-det.discount) as revenue,
+    (det.unit_price * det.quantity) * (1-det.discount) as revenue,
     p.product_id,
     p.product_name,
     p.category_id,
