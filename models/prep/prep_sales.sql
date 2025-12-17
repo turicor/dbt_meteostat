@@ -1,14 +1,14 @@
 with order_data as (
-    select * from {{ ref('northwind','staging_orders')}}
+    select * from {{ ref('staging_orders')}}
 )
 ,order_details_data as(
-    select * from {{ref('northwind','staging_order_details')}}
+    select * from {{ref('staging_order_details')}}
 )
 ,products_data as (
-    select * from {{ref('northwind','staging_products')}}
+    select * from {{ref('staging_products')}}
 )
 ,category_data as (
-    select * from {{ref('northwind','staging_categories')}}
+    select * from {{ref('staging_categories')}}
 )
 SELECT
     o.order_id,
