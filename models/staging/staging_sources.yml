@@ -29,3 +29,4 @@ sources:
       - name: weather_daily_raw
       - name: flights
       - name: airports_filtered
+      - name: staging_noreast_weather_daily
