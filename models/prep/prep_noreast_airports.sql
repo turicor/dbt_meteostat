@@ -3,7 +3,6 @@ WITH airports_reorder AS (
             ,name
             ,city
             ,country
-            ,region
             ,lat
             ,lon
             ,alt
