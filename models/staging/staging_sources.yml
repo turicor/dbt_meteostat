@@ -22,3 +22,10 @@ sources:
       - name: order_details
       - name: products
       - name: categories
+  
+  - name: air_force
+    schema: air_force
+    tables:
+      - name: weather_daily_raw
+      - name: flights
+      - name: airports
