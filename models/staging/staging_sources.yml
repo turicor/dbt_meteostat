@@ -28,4 +28,4 @@ sources:
     tables:
       - name: weather_daily_raw
       - name: flights
-      - name: airports
+      - name: airports_filtered
