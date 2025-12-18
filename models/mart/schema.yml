@@ -15,4 +15,4 @@ models:
         tests: [not null]
       - name: total_revenue
         description: "Sum of revenue for that period and category"
-        tests:[not null]
+        tests: [not null]
